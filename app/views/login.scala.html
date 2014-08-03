@@ -1,0 +1,14 @@
+@(loginForm: Form[controllers.User.LoginData])
+@import helper._
+@main("Login") {
+    @form(routes.User.performLogin) {
+        @loginForm.globalError.map { error =>
+            @error.message
+        }
+
+        @inputText(loginForm("name"))
+        @inputText(loginForm("password"))
+
+        <input type="submit" value="Register">
+    }
+}
